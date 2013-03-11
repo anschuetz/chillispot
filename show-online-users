@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Folgende User sind angemeldet:"
+echo "=============================="
+
+
+#chilli_query list | grep pass | awk -F\  '{print "User "$6" (mit IP: "$2" und MAC "$1")" }'
+chilli_query list | grep pass | awk 'BEGIN {printf("%10s %18s %20s %22s \n" ,"USER", "IP", "MAC", "Initial-URL")} {printf("%10s %18s %20s %22s \n", $6, $2, $1, $8)}'
+
